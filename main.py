@@ -32,9 +32,9 @@ async def read_image(post_image: PostImage):
     # APPLY GAUSSIAN BLUR
     image_medidor_blur = cv2.GaussianBlur(image_medidor_gray, (5, 5), 0)
     # Apply morphological gradient
-    image_medidor_gradient = cv2.morphologyEx(image_medidor_blur, cv2.MORPH_GRADIENT, np.ones((5, 5), np.uint8))
+    # image_medidor_gradient = cv2.morphologyEx(image_medidor_blur, cv2.MORPH_GRADIENT, np.ones((5, 5), np.uint8))
     #Apply threshold
-    image_medidor_threshold = cv2.threshold(image_medidor_gradient, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    image_medidor_threshold = cv2.threshold(image_medidor_blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
 
   #Write image_medidor_threshold in images folder
     #Format datetime
